@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzSliderModule } from 'ng-zorro-antd/slider';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 registerLocaleData(en);
 
@@ -35,7 +36,11 @@ registerLocaleData(en);
     NzButtonModule,
     NzIconModule,
     NzMessageModule,
-    NzSliderModule
+    NzSliderModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    })
 
   ],
   providers: [
