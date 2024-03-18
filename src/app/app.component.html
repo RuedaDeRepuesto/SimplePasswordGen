@@ -1,4 +1,31 @@
-<!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
-</a>
+<div class="combination-wrapper" nz-flex [nzGap]="24" [nzAlign]="'center'">
+  <img
+    class="k-logo"
+    alt="K-Games Software Logo"
+    src="assets/klogo.png"
+  />
+
+  <div class="form" nz-flex [nzVertical]="true" [nzGap]="'small'">
+    <div>
+      <h2> Simple Password Generator </h2>
+      <h3>
+        Here you can create an strong password easy to read
+      </h3>
+    </div>
+    
+
+    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+      <input [(ngModel)]="password" style="text-align: center;" type="text" nz-input disabled placeholder="..." />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" (click)="copy()">
+        <span nz-icon nzType="copy" nzTheme="outline"></span>
+      </button>
+    </ng-template>
+    <button nz-button (click)="generate()"><span nz-icon nzType="key" nzTheme="outline"></span> Generate</button>
+    <div class="slider">
+      <nz-slider (ngModelChange)="generate($event)" [ngModel]="size" [nzMin]="8" [nzMax]="16" [nzMarks]="marks"></nz-slider>
+    </div>
+  </div>
+
+</div>
