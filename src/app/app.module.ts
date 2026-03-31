@@ -14,7 +14,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzSliderModule } from 'ng-zorro-antd/slider';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
@@ -35,7 +35,6 @@ registerLocaleData(en);
     NzInputModule,
     NzButtonModule,
     NzIconModule,
-    NzMessageModule,
     NzSliderModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
@@ -48,6 +47,6 @@ registerLocaleData(en);
     provideAnimationsAsync(),
     provideHttpClient()
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
