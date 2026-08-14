@@ -14,14 +14,12 @@
     </div>
     
 
-    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+    <nz-space-compact nzBlock>
       <input [(ngModel)]="password" style="text-align: center;" type="text" nz-input disabled placeholder="..." />
-    </nz-input-group>
-    <ng-template #suffixIconButton>
       <button nz-button nzType="primary" (click)="copy()">
         <span nz-icon nzType="copy" nzTheme="outline"></span>
       </button>
-    </ng-template>
+    </nz-space-compact>
     <button nz-button (click)="generate()"><span nz-icon nzType="key" nzTheme="outline"></span> Generate</button>
     <div class="slider">
       <nz-slider (ngModelChange)="generate($event)" [ngModel]="size" [nzMin]="8" [nzMax]="16" [nzMarks]="marks"></nz-slider>
